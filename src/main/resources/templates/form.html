@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+     <title th:text="${titulo}" ></title>
+
+
+</head>
+
+<body>
+<h3 th:text="${titulo}"></h3>
+<form th:action="@{/form}"  th:object="${usuario}" method="post">
+
+    <div>
+        <label for="nombre">Nombre</label>
+    </div>
+
+    <div>
+        <input type="text" id="nombre" th:field="*{nombre}">
+    </div>
+
+    <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+
+    <div>
+        <label for="username">Apellido</label>
+    </div>
+
+    <div>
+        <input type="text" id="apellido" th:field="*{apellido}">
+    </div>
+
+    <div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+
+    <div>
+        <label for="username">Nombre de Usuario</label>
+    </div>
+
+    <div>
+        <input type="text" id="username" th:field="*{username}">
+    </div>
+
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+
+    <div>
+        <label for="password">Clave</label>
+    </div>
+
+    <div>
+        <input type="password" id="password" th:field="*{password}">
+    </div>
+
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+    <div>
+        <label for="email">Correo</label>
+    </div>
+
+    <div>
+        <input type="text" id="email" th:field="*{email}">
+    </div>
+
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+
+</form>
+
+</body>
+</html>
